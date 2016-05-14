@@ -1,6 +1,6 @@
 # EchoBot 
 
-A Telegram bot sample written in go, it use a fork of [Telebot](https://github.com/cortinico/telebot) from [cortinico](https://github.com/cortinico).
+A Telegram bot sample written in go, it uses a fork of [Telebot](https://github.com/cortinico/telebot) from [cortinico](https://github.com/cortinico).
 
 ## Usage
 
