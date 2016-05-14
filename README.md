@@ -1,6 +1,6 @@
 # EchoBot 
 
-A [Telebot](https://github.com/cortinico/telebot) sample written in go; use a [fork](https://github.com/GianniGM/telebot) of Telebot.
+A Telegram bot sample written in go, it use a fork of [Telebot](https://github.com/cortinico/telebot) from [cortinico](https://github.com/cortinico).
 
 ## Usage
 
@@ -8,7 +8,7 @@ When deployed on a server just type your terms to search on Telegram Client and 
 
 ## Configuration
 
-1) download [telebot](https://github.com/cortinico/telebot)
+1) download my [telebot fork](https://github.com/GianniGM/telebot)
 
 2) create new bot using [botFather](https://telegram.me/BotFather)
 
