@@ -21,9 +21,10 @@ func main() {
 	//aggiungi un contatore che si incremente ogni volta che facciamo /next e cerchiamo il successivo
 	//cerchiamo nell'array di sendgooglesearchrequest(mess, i) quando i arriva al massimo answer prende valore "finished"
 
-	bot.Start(conf, func(user string, mess string) (string, error) {
+	bot.Start(conf, func(recMess telebot.TeleMessage) (string, error) {
 		var answer string
 
+		user := recMess.From.Uname
 		if user == "" {
 			user = "everybody"
 		} else {
@@ -31,6 +32,8 @@ func main() {
 		}
 
 		//parsare la stringa e prendere il comando e il messaggio
+		mess := recMess.Text
+
 		message := strings.SplitAfterN(mess, " ", 2)
 		cmd := strings.TrimSpace(message[0])
 
@@ -38,9 +41,9 @@ func main() {
 		case "/start":
 			answer = "Welcome!\ntype /echo if wanna use echoBot in chat groupstype\n/me reply your username\n/help for this message"
 		case "/help":
-			answer = "type /echo if wanna use echoBot in chat groups\n"
-		case "/me":
-			answer = "Hi " + user + "!"
+			answer = "type /echo if wanna use echoBot in chat groups\ntype /hi for greet me"
+		case "/hi":
+			answer = "Hi " + user + "! :D\n"
 		case "/echo":
 			if len(message) > 1 && message[1] != "" {
 				answer = "Hi " + user + " you typed: " + message[1] + "!"
@@ -48,8 +51,9 @@ func main() {
 				answer = user + "you typed nothing!"
 			}
 		default:
+			//no comamnd insert in message
 			if mess != "" {
-				answer = "Hi " + user + " you typed: " + mess + "!"
+				answer = user + " typed: " + mess + "!"
 			} else {
 				answer = user + "you typed nothing!"
 			}
